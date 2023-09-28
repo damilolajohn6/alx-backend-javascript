@@ -1,16 +1,8 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name !== "string") throw new TypeError("name must be a string");
-    if (typeof length !== "number")
-      throw new TypeError("length must be a number");
-    if (!Array.isArray(students))
-      throw new TypeError("students must be an array");
-
-    for (const student of students) {
-      if (typeof student !== "string")
-        throw new TypeError("students must be an array of strings");
-    }
-
+    if (Object.getPrototypeOf(name) !== String.prototype) throw TypeError('name must be a string');
+    if (Object.getPrototypeOf(length) !== Number.prototype) throw TypeError('length must be a number');
+    if (Object.getPrototypeOf(students) !== Array.prototype) throw TypeError('students must be an array');
     this._name = name;
     this._length = length;
     this._students = students;
@@ -29,25 +21,20 @@ export default class HolbertonCourse {
   }
 
   set name(name_) {
-    if (typeof name_ !== "string") throw new TypeError("name must be a string");
+    if (Object.getPrototypeOf(name_) !== String.prototype) throw TypeError('name must be a string');
     this._name = name_;
   }
 
   set length(length_) {
-    if (typeof length_ !== "number")
-      throw new TypeError("length must be a number");
+    if (Object.getPrototypeOf(length_) !== Number.prototype) throw TypeError('length must be a number');
     this._length = length_;
   }
 
   set students(students_) {
-    if (!Array.isArray(students_))
-      throw new TypeError("students must be an array");
-
-    for (const student of students_) {
-      if (typeof student !== "string")
-        throw new TypeError("students must be an array of strings");
+    if (Object.getPrototypeOf(students_) !== Array.prototype) throw TypeError('students must be an array');
+    for (const i of students_) {
+      if (Object.getPrototypeOf(i) !== String.prototype) throw TypeError('students must be an array of strings');
     }
-
     this._students = students_;
   }
 }
