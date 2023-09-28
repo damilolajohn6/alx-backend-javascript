@@ -1,1 +1,1 @@
-Ss6 classes
+es6 classes
